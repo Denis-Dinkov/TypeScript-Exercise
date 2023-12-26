@@ -1,13 +1,12 @@
 class Department {
-  name: string;
+  // name: string;
   private employees: string[] = [];
 
-  constructor(n: string) {
-    this.name = n;
-  }
+  constructor(private readonly name: string, public id: string) {}
 
   describe(this: Department) {
-    console.log(`Department: ${this.name}`);
+    // this.name= "asdasda"
+    console.log(`Department: ${this.name} ${this.id}`);
   }
 
   addEmployee(employee: string) {
@@ -30,10 +29,8 @@ class Department {
   }
 }
 
-const accounting = new Department("Accounting");
-accounting.addEmployee("Max");
+const accounting = new Department("Accounting", "123");
+accounting.describe();
+accounting.addEmployee("peshi");
 accounting.printEmplyees();
-accounting.addEmployee("Wanko");
-accounting.printEmplyees();
-accounting.reverseWords("Pepsi the pepilota");
 // accounting.employees[3] = "Ne"; // very bad practice
