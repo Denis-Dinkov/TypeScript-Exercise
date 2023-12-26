@@ -1,36 +1,42 @@
 class Department {
-  // name: string;
+  // private readonly id: string;
+  // private name: string;
   private employees: string[] = [];
 
-  constructor(private readonly name: string, public id: string) {}
+  constructor(private readonly id: string, public name: string) {
+    // this.id = id;
+    // this.name = n;
+  }
 
   describe(this: Department) {
-    // this.name= "asdasda"
-    console.log(`Department: ${this.name} ${this.id}`);
+    console.log(`Department (${this.id}): ${this.name}`);
   }
 
   addEmployee(employee: string) {
+    // validation etc
+    // this.id = 'd2';
     this.employees.push(employee);
   }
 
-  printEmplyees(this: Department) {
-    console.log(this.employees);
+  printEmployeeInformation() {
     console.log(this.employees.length);
-  }
-  pepsiHello() {
-    console.log("I'm Pepsi the Pepilota");
-  }
-
-  reverseWords(sentence: string) {
-    const words = sentence.split(" ");
-    const reversedWords = words.reverse();
-    const reversedSentence = reversedWords.join(" ");
-    console.log(reversedSentence);
+    console.log(this.employees);
   }
 }
 
-const accounting = new Department("Accounting", "123");
-accounting.describe();
-accounting.addEmployee("peshi");
-accounting.printEmplyees();
-// accounting.employees[3] = "Ne"; // very bad practice
+class ITDepartment extends Department {
+  admins: string[];
+
+  constructor(id: string, admins: string[]) {
+    super(id, "max");
+    this.admins = admins;
+  }
+}
+
+const it = new ITDepartment("d1", ["dasda", "asdasdas"]);
+
+it.describe();
+console.log(it);
+// const accountingCopy = { name: 'DUMMY', describe: accounting.describe };
+
+// accountingCopy.describe();
