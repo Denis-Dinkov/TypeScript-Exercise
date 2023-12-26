@@ -1,6 +1,6 @@
 class Department {
   name: string;
-  employees: string[] = [];
+  private employees: string[] = [];
 
   constructor(n: string) {
     this.name = n;
@@ -25,3 +25,5 @@ accounting.addEmployee("Max");
 accounting.printEmplyees();
 accounting.addEmployee("Wanko");
 accounting.printEmplyees();
+
+// accounting.employees[3] = "Ne"; // very bad practice
