@@ -33,10 +33,25 @@ class ITDepartment extends Department {
   }
 }
 
+class AcountingDepartment extends Department {
+  constructor(id: string, private reports: string[]) {
+    super(id, "accounting");
+  }
+
+  addReport(text: string) {
+    this.reports.push(text);
+  }
+
+  printReports() {
+    console.log(this.reports);
+  }
+}
+
 const it = new ITDepartment("d1", ["dasda", "asdasdas"]);
 
-it.describe();
 console.log(it);
-// const accountingCopy = { name: 'DUMMY', describe: accounting.describe };
 
-// accountingCopy.describe();
+const accounting = new AcountingDepartment("d2", []);
+
+accounting.addReport("something went wrong");
+accounting.printReports();
