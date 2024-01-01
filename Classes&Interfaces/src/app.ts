@@ -1,19 +1,19 @@
-interface Person {
+interface Greetable {
   name: string;
-  age: number;
 
   greet(phrase: string): void;
 }
+class Person implements Greetable {
+  name: string;
+  age: number = 30;
+  constructor(name: string) {
+    this.name = name;
+  }
 
-let person: Person;
-
-person = {
-  name: "Wanko",
-  age: 1,
-
-  greet(phrase) {
-    console.log(`${phrase} ${this.name}`);
-  },
-};
+  greet(phrase: string) {
+    console.log(`${phrase} ${this.name} ${this.age}`);
+  }
+}
+let person = new Person("Iwancho");
 
 person.greet("My name is");
